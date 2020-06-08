@@ -1,6 +1,8 @@
 from django.contrib import admin
 from . import models
 # Register your models here.
+
+
 @admin.register(models.member)
 class MemberAdim(admin.ModelAdmin):
     """Item Admin Definition"""
