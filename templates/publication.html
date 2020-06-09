@@ -3,3 +3,24 @@
 {% block page_title %}
 | Publication
 {% endblock page_title %}
+{% block content %}
+{% for publication in publications %}
+{{publication.name}}
+{%for url in publication.model.url%}
+{{url}}
+{% endfor%}
+{% endfor%}
+{%for link in pub.publication.all%}
+{{link.description}}
+{% endfor%}
+<!-- <h1 style="margin-bottom: 20px;text-align: center; margin-top: 20px; border: 2px; border-color: black;">
+
+    {% for link in links%}
+    <div>
+        <a {%if link.url %} href="{{link.url}}" {% endif %}>{{link.description}}</a>
+        <h1>{{link.publication.name}}</h1>
+    </div>
+    {% endfor%}
+ -->
+
+{% endblock  %}

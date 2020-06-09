@@ -3,7 +3,7 @@ from . import models
 # Register your models here.
 
 
-@admin.register(models.member)
+@admin.register(models.Member)
 class MemberAdim(admin.ModelAdmin):
     """Item Admin Definition"""
     list_display = ("name", )

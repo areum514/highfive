@@ -28,14 +28,6 @@ class CooperativeResearchInstitution(AbstractItem):
     pass
 
 
-class ReserchArea(AbstractItem):
-    photo = models.ImageField(upload_to="photos", blank=True)
-    description = models.TextField(default="")
-
-    class Meta:
-        verbose_name_plural = "Reserch Areas"
-
-
 class Description(core_models.TimeStampedMode):
     """Description Model Definition"""
 
@@ -43,10 +35,8 @@ class Description(core_models.TimeStampedMode):
     email = models.CharField(max_length=20, default="")
     contact_number = models.CharField(max_length=20, default="")
     description = models.TextField(default="")
-
     participating_societies = models.ManyToManyField(
         ParticipatingSociety, related_name="Description", blank=True)
-    reserch_areas = models.ManyToManyField(
-        ReserchArea, related_name="Description", blank=True)
+
     cooperative_research_institutions = models.ManyToManyField(
         CooperativeResearchInstitution, related_name="Description", blank=True)

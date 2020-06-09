@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-| Equitment
+| Research
 {% endblock page_title %}
 
 {% block content %}
 
 
-
-{% for equiptment in equiptments %}
-<h1>{{equiptment.name}}<h1>
+{% for research in researches %}
+<h1>{{research.name}}<h1>
 
         {% endfor%}
         {% for photo in photos%}
-
-        <span>{{photo.caption}}</span>
         <img src="{{photo.file.url}}" style="height: auto; width: auto;">
+        <span>{{photo.caption}}</span>
+        <p>{{photo.description}}</p>
         {% endfor%}
+
         {% endblock  %}

@@ -1,19 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from . import models
 # Create your views here.
 
 
 def home_page(request):
-    return render(request, 'base.html')
-
-
-def publication_page(request):
-    return render(request, 'publication.html')
-
-
-def reserch_page(request):
-    return render(request, 'reserch.html')
-
-
-def equitment_page(request):
-    return render(request, 'equitment.html')
+    CooperativeResearchInstitutions = models.CooperativeResearchInstitution.objects.all()
+    return render(request, 'base.html', context={"CooperativeResearchInstitutions": CooperativeResearchInstitutions, })
