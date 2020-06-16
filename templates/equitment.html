@@ -5,16 +5,70 @@
 {% endblock page_title %}
 
 {% block content %}
+<style>
+        .name {
+                grid-area: header;
+        }
+
+        .item-container {
+                grid-area: right;
+                display: grid;
+                grid-template-areas:
+                        'auto auto';
+                grid-gap: 10px;
+
+        }
 
 
 
-{% for equiptment in equiptments %}
+        .grid-container {
+                display: grid;
+                grid-template-areas:
+                        'header right right';
+                grid-gap: 10px;
+                padding: 10px;
+        }
+
+        .grid-container>div {
+                border-top: 3px solid #2196F3;
+                text-align: center;
+                padding: 20px 0;
+                font-size: 30px;
+        }
+</style>
+
+<div style="  border-radius:10px; height: 40px; width: 75%;text-align: center; margin-left: auto;margin-right: auto;">
+        {% for equiptment in equiptments %}
+        <div class="grid-container">
+                <div class="name">{{equiptment.name}}</div>
+                <div class="item-container">
+                        {% for photo in equiptment.photos.all %}
+                        <div class="item-box">
+                                <img src="{{photo.file.url}}" style="height: 100px; width: auto;"></img>
+                                <p style="font-size: medium;">{{photo.caption}}</p>
+                        </div>
+                        {% endfor%}
+                </div>
+        </div>
+        {% endfor%}
+
+
+
+
+
+
+
+
+</div>
+
+<!-- {% for equiptment in equiptments %}
 <h1>{{equiptment.name}}<h1>
 
-        {% endfor%}
-        {% for photo in photos%}
+                {% endfor%}
+                {% for photo in photos%}
 
-        <span>{{photo.caption}}</span>
-        <img src="{{photo.file.url}}" style="height: auto; width: auto;">
-        {% endfor%}
-        {% endblock  %}
+                <span>{{photo.caption}}</span>
+                <img src="{{photo.file.url}}" style="height: auto; width: auto;">
+
+                {% endfor%} -->
+{% endblock  %}

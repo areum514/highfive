@@ -14,7 +14,7 @@ class Link(core_models.TimeStampedMode):
     description = models.TextField(default="", null=True, blank=True)
     url = models.URLField(("link"), max_length=200, blank=True, null=True)
     publication = models.ForeignKey(
-        "Publication", related_name="publication", on_delete=models.CASCADE)
+        "Publication", related_name="link", on_delete=models.CASCADE)
 
 
 class Publication(core_models.TimeStampedMode):

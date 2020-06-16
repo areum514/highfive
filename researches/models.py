@@ -13,7 +13,7 @@ class Photo(core_models.TimeStampedMode):
     caption = models.CharField(max_length=80, null=True, blank=True)
     description = models.TextField(default="", null=True, blank=True)
     file = models.ImageField(upload_to="research_photos")
-    equiptment = models.ForeignKey(
+    research = models.ForeignKey(
         "Research", related_name="photos", on_delete=models.CASCADE)
 
     def __str__(self):
@@ -25,6 +25,9 @@ class Research(core_models.TimeStampedMode):
 
     def __str__(self):
         return self.name
+
+    def photos(self):
+        return self.photos
 
     class Meta:
         verbose_name_plural = "Researches"

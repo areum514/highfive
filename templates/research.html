@@ -8,13 +8,15 @@
 
 
 {% for research in researches %}
-<h1>{{research.name}}<h1>
+<h1>{{research.name}}</h1>
 
-        {% endfor%}
-        {% for photo in photos%}
-        <img src="{{photo.file.url}}" style="height: auto; width: auto;">
-        <span>{{photo.caption}}</span>
-        <p>{{photo.description}}</p>
-        {% endfor%}
+{% for photo in research.photos.all %}
+<img src="{{photo.file.url}}" style="height: auto; width: auto;">
+{{photo.caption}}
+<p>{{photo.description}}</p>
+{% endfor %}
 
-        {% endblock  %}
+{% endfor%}
+
+
+{% endblock  %}
