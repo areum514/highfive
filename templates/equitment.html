@@ -7,11 +7,11 @@
 {% block content %}
 <style>
         .name {
-                grid-area: header;
+                grid-area: title;
         }
 
         .item-container {
-                grid-area: right;
+                grid-area: item;
                 display: grid;
                 grid-template-areas:
                         'auto auto';
@@ -19,32 +19,46 @@
 
         }
 
+        .center {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
 
+        }
 
         .grid-container {
                 display: grid;
                 grid-template-areas:
-                        'header right right';
+                        'title item item';
                 grid-gap: 10px;
                 padding: 10px;
+                background-color: #f8f9fa;
+                width: 1000px;
+
+
+
         }
 
         .grid-container>div {
                 border-top: 3px solid #2196F3;
+                border-width: thin;
                 text-align: center;
                 padding: 20px 0;
                 font-size: 30px;
         }
 </style>
 
-<div style="  border-radius:10px; height: 40px; width: 75%;text-align: center; margin-left: auto;margin-right: auto;">
+<div style="  border-radius:10px; ">
+        <p class="center" style="font-weight: bold;  width:max-content;font-size: xx-large; ">
+                Equitment</p>
         {% for equiptment in equiptments %}
-        <div class="grid-container">
-                <div class="name">{{equiptment.name}}</div>
+        <div class="grid-container center">
+                <div class="title " style="font-size: large; font-weight: bold;">{{equiptment.name}}</div>
                 <div class="item-container">
                         {% for photo in equiptment.photos.all %}
-                        <div class="item-box">
-                                <img src="{{photo.file.url}}" style="height: 100px; width: auto;"></img>
+                        <div class="item-box" style="margin: 10px;">
+                                <img src="{{photo.file.url}}"
+                                        style="height: 100px; width: auto;margin-bottom: 10px;"></img>
                                 <p style="font-size: medium;">{{photo.caption}}</p>
                         </div>
                         {% endfor%}

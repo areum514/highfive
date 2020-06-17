@@ -4,15 +4,32 @@
 | Publication
 {% endblock page_title %}
 {% block content %}
+<style>
+    .center {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+</style>
 
 
-{% for publication in publications %}
-<h1>{{publication.name}}</h1>
-{% for link in  publication.link.all%}
+<!--  -->
+<div class="center" style="/* background-color: #f8f9fa; */width: 1000px;">
+    <p class="center"
+        style="font-size:xx-large;font-weight:bold; margin-bottom: 2%;border-bottom: 3px solid #2196F3; width:max-content;">
+        Publication</p>
+    {% for publication in publications %}
+    <h1 style="text-align: left; font-size: large; font-weight: bold;margin: 10px; padding: 10px;">
+        {{publication.name}}</h1>
+    {% for link in  publication.link.all%}
+    <div style="text-align: left;">
+        <ul>
+            <li><a {%if link.url %} href=" {{link.url}}" {% endif %}>{{link.description}}</a></li>
+        </ul>
+    </div>
 
-<div>
-    <a {%if link.url %} href="{{link.url}}" {% endif %}>{{link.description}}</a>
+    {% endfor%}
+    {% endfor%}
 </div>
-{% endfor%}
-{% endfor%}
 {% endblock  %}

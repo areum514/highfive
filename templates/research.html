@@ -6,16 +6,25 @@
 
 {% block content %}
 
-
 {% for research in researches %}
-<h1>{{research.name}}</h1>
+<style>
+    .center {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
 
-{% for photo in research.photos.all %}
-<img src="{{photo.file.url}}" style="height: auto; width: auto;">
-{{photo.caption}}
-<p>{{photo.description}}</p>
-{% endfor %}
+    }
+</style>
+<div class="center" style="background-color :#f8f9fa; width: 1000px;">
+    <p style="font-size: x-large;">{{research.name}}</p>
 
+    {% for photo in research.photos.all %}
+    <img src="{{photo.file.url}}" style="height: auto; width: auto; ">
+    <p> {{photo.caption}}</p>
+    <p>{{photo.description}}</p>
+    {% endfor %}
+
+</div>
 {% endfor%}
 
 
