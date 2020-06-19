@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% for research in researches %}
+
 <style>
     .center {
         text-align: center;
@@ -14,16 +14,62 @@
         margin-right: auto;
 
     }
+
+
+    .photo {
+        grid-area: photo;
+    }
+
+    .description {
+        grid-area: description;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            'photo photo description description description';
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto 250px;
+
+        grid-gap: 10px;
+        /*      background-color: #2196F3; */
+        padding: 10px;
+        margin: 10px;
+        overflow: visible;
+
+    }
+
+    .grid-container>div {
+        /*  background-color: rgba(255, 255, 255, 0.8); */
+        text-align: center;
+        padding: 20px 0;
+
+    }
 </style>
-<div class="center" style="background-color :#f8f9fa; width: 1000px;">
-    <p style="font-size: x-large;">{{research.name}}</p>
 
-    {% for photo in research.photos.all %}
-    <img src="{{photo.file.url}}" style="height: auto; width: auto; ">
-    <p> {{photo.caption}}</p>
-    <p>{{photo.description}}</p>
-    {% endfor %}
+<p class="center"
+    style="font-size:xx-large;font-weight:bold; margin-bottom: 3%;/* border-bottom: 3px solid #2196F3; */ width:max-content; ">
+    Research</p>
 
+{% for research in researches %}
+<div class="center" style="/* background-color :#f8f9fa;  border-bottom: solid 1px;*/">
+    <div class="center" style="width: 1000px;">
+        <div style="font-size: x-large;text-align: left;font-weight: bold;border-bottom: 3px solid #2196F3;">
+            {{research.name}}</div>
+
+        {% for photo in research.photos.all %}
+        <div class="grid-container" style=" text-align: center;">
+
+            <div class="photo" style=" margin-right: 10px; ">
+                <img src="{{photo.file.url}}" style="height: auto; width: auto;margin-bottom: 3px;">
+                <p> {{photo.caption}}</p>
+            </div>
+            <div class="description" style="text-align:  left; margin-top: 20px;  ">{{photo.description}}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
 </div>
 {% endfor%}
 

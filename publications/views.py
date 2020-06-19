@@ -5,8 +5,7 @@ from . import models
 
 
 def publication_page(request):
-    links = models.Link.objects.all()
+
     publications = models.Publication.objects.all()
-    pub = models.Publication
-    print(vars(publications.model))
-    return render(request, 'publication.html', context={"links": links, "publications": publications, "pub": pub})
+
+    return render(request, 'publication.html', context={"publications": publications, })

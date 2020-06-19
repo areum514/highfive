@@ -6,8 +6,5 @@ from . import models
 
 
 def equitment_page(request):
-
-    photos = models.Photo.objects.all()
     equiptments = models.Equiptment.objects.all()
-
-    return render(request, "equitment.html", context={"equiptments": equiptments, "photos": photos, })
+    return render(request, "equitment.html", context={"equiptments": equiptments, })

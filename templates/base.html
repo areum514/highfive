@@ -1,3 +1,4 @@
+{%load static%}
 <!doctype html>
 <html lang="en">
 
@@ -48,8 +49,64 @@
 
             </div>
         </nav>
-    </div>
-    {% block content %}{% endblock  %}
+
+        {% block content %}
+        <style>
+            .hero-header {
+
+                height: 1200px;
+                text-align: center;
+                line-height: 900px;
+                background-repeat: no-repeat;
+                justify-content: center;
+                /* background-color: grey; */
+                background-color: #2196F3;
+                background-position: center top;
+                background-size: 100% auto;
+            }
+
+            .hero-header .info {
+
+                display: inline-block;
+                line-height: normal;
+                vertical-align: middle;
+
+            }
+
+            .hero-header .info h1 {
+                font-size: 36px;
+                margin: 0;
+                margin-bottom: 13px;
+                color: white;
+                font-weight: 400;
+                width: 700px;
+            }
+
+            .hero-header .info h2 {
+                font-size: 16px;
+                margin: 0;
+                margin-bottom: 60px;
+                color: white;
+                font-weight: 400;
+            }
+
+            .hero-header .info a {
+                font-size: 14px;
+                background-color: white;
+                color: #464273;
+                padding: 10px 40px;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+        </style>
+        <div class="hero-header" style="background-image: url({% static 'background.png' %});">
+            <div class=" info">
+                <h1>인간-로봇 상호작용, 생체신호 기반 근전 의수, 스마트 재활 시스템 등을 개발</h1>
+                <h2>두뇌의 제어 메커니즘을 규명하는 연구를 통해 인간 중심의 지능형 인터페이스를 개발</h2>
+                <a href="{% url 'research'%}">더 알아보기</a>
+            </div>
+        </div>
+        {% endblock  %}
 
 
 

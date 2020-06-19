@@ -5,8 +5,7 @@ from . import models
 
 
 def research_page(request):
-    # return HttpResponse(content="hello")
-    photos = models.Photo.objects.all()
+
     researches = models.Research.objects.all()
 
-    return render(request, "research.html", context={"researches": researches, "photos": photos})
+    return render(request, "research.html", context={"researches": researches, })

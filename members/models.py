@@ -17,3 +17,4 @@ class Member(core_models.TimeStampedMode):
     """member Model Definition"""
     name = models.CharField(max_length=140)
     avatar = models.ImageField(upload_to="avatars", blank=True)
+    description = models.TextField(default="", null=True, blank=True)
