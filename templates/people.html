@@ -16,6 +16,8 @@
 
     .photo {
         grid-area: photo;
+
+
     }
 
     .description {
@@ -26,22 +28,28 @@
         display: grid;
         grid-template-areas:
             'photo description description';
-        grid-template-rows: auto 1fr;
-
-        grid-gap: 10px;
-
+        /* grid-template-rows: auto 2fr; */
+        grid-gap: 5px;
         padding: 10px;
         margin: 10px;
         overflow: visible;
 
+
     }
 
     .grid-container>div {
+        border-top: 3px solid #2196F3;
+        border-width: thin;
 
-        text-align: center;
         padding: 20px 0;
 
+
     }
+
+    .grid-container:nth-child(odd) {
+        background-color: #f8f9fa;
+    }
+
 
 
 
@@ -52,26 +60,22 @@
     }
 </style>
 
-{% for member in members %}
 <div class="center" style="width:1000px">
+    <div class="title " style="font-size: large; font-weight: bold;text-align: left;">교수님</div>
+    {% for member in members %}
     <div class="grid-container ">
-
-        <!--   <div style="margin-left:auto ;margin-right:auto ; text-align: center ;text-align: center;background-image:url({{member.avatar.url}}) ;
-    width: 250px;height: 300px;background-repeat: no-repeat; justify-content: center;">
-        </div> -->
         <div class="selector" style="width:250px; height:300px">
             <img class="photo" src="{{member.avatar.url}}" alt="">
         </div>
-        <!--  <div class="photo center" style="width: 250px;height: 300px; background-color: #2196F3;text-align: center;"> 
-    </div>-->
+
         <div class=" description">
-            <h1 style="text-align: center;">{{member.name}}</h1>
-            <div style="text-align: center;">{{member.description}}</div>
+            <h1 style="text-align:left;font-size: x-large;">{{member.name}}</h1>
+            <div style="text-align: center; font-size: medium;">{{member.description}}</div>
         </div>
     </div>
+    {% endfor%}
 </div>
 </div>
-{% endfor%}
 
 
 
