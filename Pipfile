@@ -10,6 +10,8 @@ awsebcli = "*"
 django = "*"
 pillow = "*"
 scss = "*"
+django-dotenv = "*"
+pipenv-to-requirements = "*"
 
 [requires]
 python_version = "3.7"
