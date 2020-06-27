@@ -12,6 +12,7 @@ pillow = "*"
 scss = "*"
 django-dotenv = "*"
 pipenv-to-requirements = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"
